@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your AI Desktop Assistant - Real-time Intelligence at Your Fingertips</title>
+        <meta name="description" content="A privacy-focused desktop assistant that captures screen and audio on-demand to provide real-time AI assistance. Stealth mode, dual input, and local-first design." />
+        <link
+            rel="shortcut icon"
+            href="./assets/logo/logo.png"
+            type="image/x-icon"
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:title" content="AI Desktop Assistant - Real-time Intelligence" />
+        <meta property="og:description" content="Privacy-focused desktop assistant with screen capture, audio processing, and real-time AI responses. Only when you need it." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://github.com/PaulleDemon" />
+        <!--Replace with the current website url-->
+        <meta property="og:image" content="" />
+
+        <!-- <link rel="stylesheet" href="../../tailwind-css/tailwind-runtime.css" /> -->
+        <link rel="stylesheet" href="./css/tailwind-build.css">
+        <link rel="stylesheet" href="css/index.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+            integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body
+        class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-black tw-text-white"
+    >
+        <header
+            class="tw-max-w-lg:tw-px-4 tw-max-w-lg:tw-mr-auto tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] lg:tw-justify-around"
+        >
+            <a class="tw-h-[50px] tw-w-[50px] tw-p-[4px]" href="">
+                <img
+                    src="./assets/logo/logo.png"
+                    alt="AI Desktop Assistant Logo"
+                    class="tw-object tw-h-full tw-w-full"
+                />
+            </a>
+            <div
+                class="collapsible-header animated-collapse max-lg:tw-shadow-md"
+                id="collapsed-header-items"
+            >
+                <div
+                    class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
+                >
+                    <a class="header-links" href="#features"> Features </a>
+                    <a class="header-links" href="#privacy"> Privacy </a>
+                    <a class="header-links" href="#download"> Download </a>
+                    <a class="header-links" href="#about"> About </a>
+                </div>
+                <div
+                    class="tw-mx-4 tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center"
+                >
+                    <a
+                        href="https://github.com/srikarpunna/proxy-ai-releases/releases/download/v1.0.0/Proxy.AI.Assistant-1.0.0-arm64.dmg"
+                        download
+                        aria-label="download"
+                        class="tw-rounded-full tw-bg-white tw-px-8 tw-py-4 tw-text-black tw-font-medium tw-transition-transform tw-duration-[0.3s] hover:tw-translate-x-2"
+                    >
+                        Download
+                    </a>
+                </div>
+            </div>
+            <button
+                class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-white lg:tw-hidden"
+                onclick="toggleHeader()"
+                aria-label="menu"
+                id="collapse-btn"
+            ></button>
+        </header>
+
+        <section
+            class="hero-section tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-md:tw-mt-[50px]"
+            id="hero-section"
+        >
+            <div
+                class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-flex-col tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-p-4"
+            >
+                <div
+                    class="tw-flex tw-flex-col tw-place-content-center tw-items-center"
+                >
+                    <div
+                        class="reveal-up gradient-text tw-text-center tw-text-6xl tw-font-semibold tw-uppercase tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug"
+                    >
+                        <span class=""> Your AI  </span>
+                        <br />
+                        <span class=""> Desktop Copilot </span>
+                    </div>
+                    
+                </div>
+
+                <div
+                    class="reveal-up tw-relative tw-mt-8 tw-flex tw-w-full tw-place-content-center tw-place-items-center"
+                    id="dashboard-container"
+                >
+                    <div
+                        class="tw-relative tw-max-w-[800px] tw-max-h-[800px] tw-overflow-hidden tw-rounded-xl tw-bg-transparent max-md:tw-max-w-full"
+                        id="dashboard"
+                    >
+                        <img
+                            src="./assets/images/home/ai-hero-main.png"
+                            alt="AI Desktop Assistant Interface"
+                            class=" tw-w-full tw-object-contain tw-opacity-90 "
+                        />
+                    </div>
+
+                    <div
+                        class="hero-img-bg-grad tw-absolute tw-left-[50%] tw--translate-x-[50%] tw-top-5 tw-h-[200px] tw-w-[200px]"
+                    ></div>
+                </div>
+
+                <div class="tw-flex tw-flex-col tw-w-full tw-place-items-center tw-place-content-center">
+                     <div
+                        class="reveal-up tw-mt-10 tw-max-w-[550px] tw-p-2 tw-text-center tw-text-gray-300 tw-text-lg max-lg:tw-max-w-full"
+                    >
+                        Real-time AI assistance that captures your screen and audio <strong>only when you need it</strong>. Privacy-focused, stealth mode, and completely invisible during screen sharing.
+                    </div>
+
+                    <div
+                        class="reveal-up tw-mt-10 tw-flex tw-place-items-center tw-gap-4"
+                    >
+                        <a
+                            class="btn tw-bg-[#7e22ce85] tw-shadow-lg tw-shadow-primary tw-transition-transform tw-duration-[0.3s] hover:tw-scale-x-[1.03]"
+                            href="https://github.com/srikarpunna/proxy-ai-releases/releases/download/v1.0.0/Proxy.AI.Assistant-1.0.0-arm64.dmg"
+                            download
+                        >
+                            Download
+                        </a>
+                        <a
+                            class="btn tw-flex tw-gap-2 !tw-bg-black !tw-text-white tw-transition-colors tw-duration-[0.3s] hover:!tw-bg-white hover:!tw-text-black"
+                            href="#features"
+                        >
+                            <i class="bi bi-play-circle-fill"></i>
+                            <span>See Features</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-8"
+        >
+            <h2 class="reveal-up tw-text-3xl max-md:tw-text-xl tw-text-center">
+                Built for professionals who need to stay sharp
+            </h2>
+            <p class="reveal-up tw-mt-4 tw-text-gray-400 tw-text-center tw-max-w-[600px]">
+                Perfect for developers, founders, sales professionals, and anyone who needs real-time AI assistance during critical moments
+            </p>
+
+            <div class="reveal-up carousel-container">
+                <div
+                    class="carousel lg:w-place-content-center tw-mt-6 tw-flex tw-w-full tw-gap-5 max-md:tw-gap-2"
+                >
+                    <!-- add the brands using your app  -->
+                    <div class="carousel-img tw-h-[30px] tw-w-[150px]">
+                        <img
+                            src="./assets/images/brand-logos/google.svg"
+                            alt="Google"
+                            class="tw-h-full tw-w-full tw-object-contain tw-grayscale tw-transition-colors hover:tw-grayscale-0"
+                            srcset=""
+                        />
+                    </div>
+                    <div class="carousel-img tw-h-[30px] tw-w-[150px]">
+                        <img
+                            src="./assets/images/brand-logos/microsoft.svg"
+                            alt="Microsoft"
+                            class="tw-h-full tw-w-full tw-object-contain tw-grayscale tw-transition-colors hover:tw-grayscale-0"
+                            srcset=""
+                        />
+                    </div>
+                    <div class="carousel-img tw-h-[30px] tw-w-[150px]">
+                        <img
+                            src="./assets/images/brand-logos/adobe.svg"
+                            alt="Adobe"
+                            class="tw-h-full tw-w-full tw-object-contain tw-grayscale tw-transition-colors hover:tw-grayscale-0"
+                            srcset=""
+                        />
+                    </div>
+                    <div class="carousel-img tw-h-[30px] tw-w-[150px]">
+                        <img
+                            src="./assets/images/brand-logos/airbnb.svg"
+                            alt="Airbnb"
+                            class="tw-h-full tw-w-full tw-object-contain tw-grayscale tw-transition-colors hover:tw-grayscale-0"
+                            srcset=""
+                        />
+                    </div>
+                    <div class="carousel-img tw-h-[30px] tw-w-[150px]">
+                        <img
+                            src="./assets/images/brand-logos/stripe.svg"
+                            alt="Stripe"
+                            class="tw-h-full tw-w-full tw-object-contain tw-grayscale tw-transition-colors hover:tw-grayscale-0"
+                            srcset=""
+                        />
+                    </div>
+                    <div class="carousel-img tw-h-[30px] tw-w-[150px]">
+                        <img
+                            src="./assets/images/brand-logos/reddit.svg"
+                            alt="Reddit"
+                            class="tw-h-full tw-w-full tw-object-contain tw-grayscale tw-transition-colors hover:tw-grayscale-0"
+                            srcset=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="tw-relative tw-mt-10 tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-items-center lg:tw-p-6"
+            id="features"
+        >
+
+            <h2 class="tw-text-4xl max-md:tw-text-3xl tw-text-center">What makes it different</h2>
+            <p class="tw-mt-4 tw-text-gray-400 tw-text-center tw-max-w-[600px] tw-text-lg">
+                Unlike passive tracking tools, we're built for real-time, intentional interaction. Help users act smarter in the moment.
+            </p>
+            
+            <div
+                class="reveal-up tw-mt-[5%] tw-flex tw-h-full tw-w-full tw-place-content-center tw-gap-8 tw-p-4 max-lg:tw-max-w-full max-lg:tw-flex-col"
+            >
+                <div
+                    class="tw-flex tw-flex-col tw-gap-[200px] tw-h-full tw-max-w-[50%] max-lg:tw-max-w-full tw-px-[10%] max-lg:tw-px-4 max-lg:tw-gap-16 max-lg:tw-w-full lg:tw-top-[20%]"
+                >   
+                    <div class="tw-flex tw-gap-6">
+                        <div class="tw-w-[80px] tw-h-[80px] tw-min-w-[80px] 
+                                    tw-min-h-[80px] 
+                                    max-lg:tw-min-h-[60px] max-lg:tw-min-w-[60px] max-lg:tw-h-[60px] max-lg:tw-w-[60px]">
+                            <img src="./assets/images/icons/unlock.png" alt="user control" class="tw-object-contain tw-w-full tw-h-full">
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-3">
+                            <h3 class="tw-text-3xl tw-font-medium max-lg:tw-text-2xl max-lg:tw-font-normal">
+                                User-initiated only
+                            </h3>
+                            <p class="tw-text-gray-400 tw-text-base max-lg:tw-text-sm">
+                                Nothing is recorded or captured unless you trigger it. Complete privacy and control over when the assistant activates.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tw-flex tw-gap-6">
+                        <div class="tw-w-[80px] tw-h-[80px] tw-min-w-[80px] tw-min-h-[80px] max-lg:tw-min-h-[60px] max-lg:tw-min-w-[60px] max-lg:tw-h-[60px] max-lg:tw-w-[60px]">
+                            <img src="./assets/images/icons/lighting.png" alt="stealth mode" class="tw-object-contain tw-w-full tw-h-full">
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-3">
+                            <h3 class="tw-text-3xl tw-font-medium max-lg:tw-text-2xl max-lg:tw-font-normal">
+                                Stealth mode
+                            </h3>
+                            <p class="tw-text-gray-400 tw-text-base max-lg:tw-text-sm">
+                                Completely invisible during screen sharing or on multiple monitors. No overlays, no visible interface when you need discretion.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tw-flex tw-gap-6">
+                        <div class="tw-w-[80px] tw-h-[80px] tw-min-w-[80px] tw-min-h-[80px] max-lg:tw-min-h-[60px] max-lg:tw-min-w-[60px] max-lg:tw-h-[60px] max-lg:tw-w-[60px]">
+                            <img src="./assets/images/icons/music.png" alt="dual input" class="tw-object-contain tw-w-full tw-h-full">
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-3">
+                            <h3 class="tw-text-3xl tw-font-medium max-lg:tw-text-2xl max-lg:tw-font-normal">
+                                Dual input flexibility
+                            </h3>
+                            <p class="tw-text-gray-400 tw-text-base max-lg:tw-text-sm">
+                                Speak or type your prompts for maximum flexibility. Ask questions, get summaries, or generate responses however you prefer.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tw-flex tw-gap-6">
+                        <div class="tw-w-[80px] tw-h-[80px] tw-min-w-[80px] tw-min-h-[80px] max-lg:tw-min-h-[60px] max-lg:tw-min-w-[60px] max-lg:tw-h-[60px] max-lg:tw-w-[60px]">
+                            <img src="./assets/images/icons/credit-card.png" alt="real-time responses" class="tw-object-contain tw-w-full tw-h-full">
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-3">
+                            <h3 class="tw-text-3xl tw-font-medium max-lg:tw-text-2xl max-lg:tw-font-normal">
+                                Real-time responses
+                            </h3>
+                            <p class="tw-text-gray-400 tw-text-base max-lg:tw-text-sm">
+                                Powered by integrated LLM backend for instant, contextual responses. Get help when you need it, not minutes later.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tw-flex tw-gap-6">
+                        <div class="tw-w-[80px] tw-h-[80px] tw-min-w-[80px] tw-min-h-[80px] max-lg:tw-min-h-[60px] max-lg:tw-min-w-[60px] max-lg:tw-h-[60px] max-lg:tw-w-[60px]">
+                            <img src="./assets/images/icons/unlock.png" alt="local-first" class="tw-object-contain tw-w-full tw-h-full">
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-3">
+                            <h3 class="tw-text-3xl tw-font-medium max-lg:tw-text-2xl max-lg:tw-font-normal">
+                                Local-first design
+                            </h3>
+                            <p class="tw-text-gray-400 tw-text-base max-lg:tw-text-sm">
+                                Privacy-focused architecture that avoids passive logging or storage. Your data stays on your device.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tw-flex tw-gap-6">
+                        <div class="tw-w-[80px] tw-h-[80px] tw-min-w-[80px] tw-min-h-[80px] max-lg:tw-min-h-[60px] max-lg:tw-min-w-[60px] max-lg:tw-h-[60px] max-lg:tw-w-[60px]">
+                            <img src="./assets/images/icons/lighting.png" alt="cross-platform" class="tw-object-contain tw-w-full tw-h-full">
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-3">
+                            <h3 class="tw-text-3xl tw-font-medium max-lg:tw-text-2xl max-lg:tw-font-normal">
+                                Cross-platform support
+                            </h3>
+                            <p class="tw-text-gray-400 tw-text-base max-lg:tw-text-sm">
+                                Works seamlessly across Windows, Mac, and Linux. Same powerful features, consistent experience everywhere.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div
+                    class="tw-relative tw-flex tw-max-w-[30%] max-lg:tw-max-w-full tw-flex-col tw-place-items-start tw-gap-4  tw-p-2 max-lg:tw-place-items-center max-lg:tw-place-content-center max-lg:tw-w-full"
+                >
+                    <div
+                        class="tw-top-20 lg:tw-sticky tw-max-h-[800px] tw-h-full tw-max-w-[850px] max-lg:tw-max-h-fit max-lg:tw-max-w-[320px] tw-overflow-hidden tw-rounded-lg"
+                    >
+                        <img
+                            src="./assets/images/home/ai-features-interface-v2.png"
+                            alt="AI Desktop Assistant Interface - Neural network brain, voice input, privacy protection, processing indicators, stealth mode toggle"
+                            class="tw-h-full tw-w-full tw-object-contain"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="tw-relative tw-flex tw-min-h-[80vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
+            id="use-cases"
+        >
+            <div
+                class="tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5"
+            >
+                <div
+                    class="reveal-up tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center"
+                >
+                    <h2
+                        class="tw-text-4xl tw-font-medium tw-text-gray-200 max-md:tw-text-2xl"
+                    >
+                        Perfect for high-pressure moments
+                    </h2>
+                    <p class="tw-text-gray-400 tw-text-lg tw-max-w-[600px]">
+                        When you need to stay sharp and respond intelligently, our AI assistant has your back
+                    </p>
+                </div>
+                <div
+                    class="tw-mt-6 tw-flex tw-max-w-[80%] tw-flex-wrap tw-place-content-center tw-gap-8 max-lg:tw-flex-col"
+                >
+                    <div
+                        class="reveal-up tw-flex tw-h-[200px] tw-w-[450px] tw-gap-8 tw-rounded-xl tw-border-[1px] tw-border-outlineColor tw-bg-secondary tw-p-8 max-md:tw-w-[320px]"
+                    >
+                        <div class="tw-text-4xl max-md:tw-text-2xl tw-text-blue-400">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <div class="tw-flex tw-flex-col tw-gap-4">
+                            <h3 class="tw-text-2xl max-md:tw-text-xl">
+                                Sales & Meetings
+                            </h3>
+                            <p class="tw-text-gray-300 max-md:tw-text-sm">
+                                "Summarize this meeting" or "Draft a follow-up email" - stay on top of conversations without missing a beat
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal-up tw-flex tw-h-[200px] tw-w-[450px] tw-gap-8 tw-rounded-xl tw-border-[1px] tw-border-outlineColor tw-bg-secondary tw-p-8 max-md:tw-w-[320px]"
+                    >
+                        <div class="tw-text-4xl max-md:tw-text-2xl tw-text-green-400">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+
+                        <div class="tw-flex tw-flex-col tw-gap-4">
+                            <h3 class="tw-text-2xl max-md:tw-text-xl">
+                                Developer Support
+                            </h3>
+                            <p class="tw-text-gray-300 max-md:tw-text-sm">
+                                "What's this error about?" or "Explain this code" - get instant technical context and debugging help
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal-up tw-flex tw-h-[200px] tw-w-[450px] tw-gap-8 tw-rounded-xl tw-border-[1px] tw-border-outlineColor tw-bg-secondary tw-p-8 max-md:tw-w-[320px]"
+                    >
+                        <div class="tw-text-4xl max-md:tw-text-2xl tw-text-purple-400">
+                            <i class="bi bi-person-video3"></i>
+                        </div>
+
+                        <div class="tw-flex tw-flex-col tw-gap-4">
+                            <h3 class="tw-text-2xl max-md:tw-text-xl">
+                                Interviews & Pitches
+                            </h3>
+                            <p class="tw-text-gray-300 max-md:tw-text-sm">
+                                "Draft a response to what's being said" - stay confident and articulate during critical conversations
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal-up tw-flex tw-h-[200px] tw-w-[450px] tw-gap-8 tw-rounded-xl tw-border-[1px] tw-border-outlineColor tw-bg-secondary tw-p-8 max-md:tw-w-[320px]"
+                    >
+                        <div class="tw-text-4xl max-md:tw-text-2xl tw-text-orange-400">
+                            <i class="bi bi-shield-lock-fill"></i>
+                        </div>
+
+                        <div class="tw-flex tw-flex-col tw-gap-4">
+                            <h3 class="tw-text-2xl max-md:tw-text-xl">
+                                Privacy First
+                            </h3>
+                            <p class="tw-text-gray-300 max-md:tw-text-sm">
+                                Unlike Rewind or Cluely, we don't log your life - only capture when you explicitly need help
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="tw-mt-5 tw-flex tw-min-h-[80vh] tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-p-[2%] max-lg:tw-p-3"
+        >
+            <h3
+                class="reveal-up tw-text-center tw-text-4xl tw-font-medium max-md:tw-text-2xl"
+            >
+                Real-world success stories ✨
+            </h3>
+            <!-- articles -->
+            <div
+                class="reveal-up tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-10 max-lg:tw-flex-col"
+            >
+                <a
+                    href=""
+                    class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]"
+                >
+                    <div
+                        class="tw-h-[250px] tw-w-full tw-overflow-hidden tw-rounded-md"
+                    >
+                        <img
+                            src="./assets/images/home/ai-sales-presentation.png"
+                            alt="Sales team using AI assistant during presentations - confident businessperson presenting to clients with AI assistance"
+                            class="tw-h-full tw-w-full tw-object-cover tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]"
+                            srcset=""
+                        />
+                    </div>
+                    <h3
+                        class="tw-mt-2 tw-text-2xl tw-font-semibold max-md:tw-text-xl"
+                    >
+                        Closing More Deals with AI
+                    </h3>
+                    <p class="tw-text-gray-400">
+                        How sales teams use stealth mode AI assistance to stay sharp during client presentations and close 40% more deals.
+                    </p>
+                    <span>
+                        <span>Read case study</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+                <a
+                    href=""
+                    class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]"
+                >
+                    <div
+                        class="tw-h-[250px] tw-w-full tw-overflow-hidden tw-rounded-md"
+                    >
+                        <img
+                            src="./assets/images/home/ai-developer-support.png"
+                            alt="Developer debugging code with AI assistance - Professional developer with dual monitors showing code and AI error explanations"
+                            class="tw-h-full tw-w-full tw-object-cover tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]"
+                            srcset=""
+                        />
+                    </div>
+                    <h3
+                        class="tw-mt-2 tw-text-2xl tw-font-semibold max-md:tw-text-xl"
+                    >
+                        Debug Faster, Ship Better
+                    </h3>
+                    <p class="tw-text-gray-400">
+                        Developer teams reducing debugging time by 60% with real-time AI context and instant error explanations.
+                    </p>
+                    <span>
+                        <span>See how it works</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+                <a
+                    href=""
+                    class="tw-flex tw-h-[400px] tw-w-[400px] tw-flex-col tw-gap-4 tw-overflow-clip tw-rounded-lg tw-p-4 max-lg:tw-w-[300px]"
+                >
+                    <div
+                        class="tw-h-[250px] tw-w-full tw-overflow-hidden tw-rounded-md"
+                    >
+                        <img
+                            src="./assets/images/home/ai-executive-interview.png"
+                            alt="Executive in video interview with invisible AI assistance - Professional executive confidently speaking during high-stakes interview"
+                            class="tw-h-full tw-w-full tw-object-cover tw-transition-transform tw-duration-[0.3s] hover:tw-scale-[1.04]"
+                            srcset=""
+                        />
+                    </div>
+                    <h3
+                        class="tw-mt-2 tw-text-2xl tw-font-semibold max-md:tw-text-xl"
+                    >
+                        Ace Every Interview
+                    </h3>
+                    <p class="tw-text-gray-400">
+                        How professionals use invisible AI assistance to stay confident and articulate during high-stakes interviews.
+                    </p>
+                    <span>
+                        <span>Learn the technique</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <section
+            class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-[10%] tw-p-[5%] tw-px-[10%] max-md:tw-px-2"
+            id="faq"
+        >
+            <h3
+                class="tw-text-4xl tw-font-medium tw-text-gray-300 max-md:tw-text-2xl"
+            >
+                Frequently Asked Questions
+            </h3>
+            <div
+                class="tw-mt-5 tw-flex tw-min-h-[300px] tw-w-full tw-max-w-[850px] tw-flex-col tw-gap-4"
+            >
+                <div
+                    class="faq tw-w-full tw-rounded-md tw-border-[1px] tw-border-solid tw-border-[#1F2123] tw-bg-[#080808]"
+                >
+                    <div
+                        class="faq-accordion tw-flex tw-w-full tw-select-none tw-text-xl max-md:tw-text-lg"
+                    >
+                        <span>Is my data private and secure?</span>
+                        <i class="bi bi-plus tw-ml-auto tw-font-semibold"></i>
+                    </div>
+                    <div class="content">
+                        Absolutely. Our AI assistant only captures screen and audio when YOU trigger it. No passive logging, no background recording. Your data stays on your device with our local-first architecture.
+                    </div>
+                </div>
+
+                <div
+                    class="faq tw-w-full tw-rounded-md tw-border-[1px] tw-border-solid tw-border-[#1F2123] tw-bg-[#080808]"
+                >
+                    <div
+                        class="faq-accordion tw-flex tw-w-full tw-select-none tw-text-xl max-md:tw-text-lg"
+                    >
+                        <span>How does stealth mode work?</span>
+                        <i class="bi bi-plus tw-ml-auto tw-font-semibold"></i>
+                    </div>
+                    <div class="content">
+                        The assistant remains completely invisible during screen sharing, video calls, or when using multiple monitors. No overlays, no visible interface - just intelligent assistance when you need it.
+                    </div>
+                </div>
+
+                <div
+                    class="faq tw-w-full tw-rounded-md tw-border-[1px] tw-border-solid tw-border-[#1F2123] tw-bg-[#080808]"
+                >
+                    <div
+                        class="faq-accordion tw-flex tw-w-full tw-select-none tw-text-xl max-md:tw-text-lg"
+                    >
+                        <span>What operating systems are supported?</span>
+                        <i class="bi bi-plus tw-ml-auto tw-font-semibold"></i>
+                    </div>
+                    <div class="content">
+                        We support Windows, Mac, and Linux with the same powerful features across all platforms. Cross-platform compatibility is a core part of our design.
+                    </div>
+                </div>
+
+                <div
+                    class="faq tw-w-full tw-rounded-md tw-border-[1px] tw-border-solid tw-border-[#1F2123] tw-bg-[#080808]"
+                >
+                    <div
+                        class="faq-accordion tw-flex tw-w-full tw-select-none tw-text-xl max-md:tw-text-lg"
+                    >
+                        <span>How is this different from Rewind or Cluely?</span>
+                        <i class="bi bi-plus tw-ml-auto tw-font-semibold"></i>
+                    </div>
+                    <div class="content">
+                        Unlike passive tracking tools, we focus on real-time, intentional interaction. We don't log your life - we help you act smarter in the moment, only when you explicitly need assistance.
+                    </div>
+                </div>
+
+                <div
+                    class="faq tw-w-full tw-rounded-md tw-border-[1px] tw-border-solid tw-border-[#1F2123] tw-bg-[#080808]"
+                >
+                    <div
+                        class="faq-accordion tw-flex tw-w-full tw-select-none tw-text-xl max-md:tw-text-lg"
+                    >
+                        <span>Can I use both voice and text input?</span>
+                        <i class="bi bi-plus tw-ml-auto tw-font-semibold"></i>
+                    </div>
+                    <div class="content">
+                        Yes! Our dual input system lets you speak your prompts or type them - whatever feels more natural for your situation. Perfect for meetings where you need to stay quiet or when voice is more convenient.
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="tw-mt-20 tw-flex tw-flex-col tw-place-items-center tw-gap-4"
+            >
+                <div class="tw-text-3xl max-md:tw-text-2xl">
+                    Still have questions?
+                </div>
+                <a
+                    href="#contact"
+                    class="btn !tw-rounded-full !tw-border-[1px] !tw-border-solid !tw-border-gray-300 !tw-bg-transparent tw-transition-colors tw-duration-[0.3s]"
+                >
+                    Contact Us
+                </a>
+            </div>
+        </section>
+
+        <section
+            class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-[10%] tw-p-[5%] tw-px-[10%] max-md:tw-px-2"
+            id="download"
+        >
+            <div class="signup-img-section tw-h-[550px] tw-flex max-lg:tw-flex-col tw-max-h-[550px] tw-max-w-[80%]  max-lg:tw-max-h-fit max-lg:tw-h-full max-lg:tw-max-w-full tw-overflow-hidden tw-rounded-xl tw-w-full">
+                    
+                    <div
+                        class="tw-flex tw-flex-col tw-h-full tw-place-content-center tw-gap-6  tw-p-6 max-md:tw-max-w-full"
+                        >
+                        <div class="tw-flex tw-flex-col tw-gap-1">
+                            <h2 class="tw-text-3xl tw-text-gray-300 max-md:tw-text-xl">
+                                Download Proxy AI Assistant
+                            </h2>
+                            <div class="tw-text-gray-300">Ready to experience real-time AI assistance? Download now and get started in minutes.</div>
+                        </div>
+
+                        <!-- Mac Downloads -->
+                        <div class="tw-flex tw-flex-col tw-gap-4">
+                            <h3 class="tw-text-xl tw-text-white tw-font-medium">macOS</h3>
+                            <div class="tw-flex tw-gap-3 tw-flex-wrap">
+                                <a
+                                    href="https://github.com/srikarpunna/proxy-ai-releases/releases/download/v1.0.0/Proxy.AI.Assistant-1.0.0-arm64.dmg"
+                                    download
+                                    class="btn !tw-rounded-lg !tw-border-[1px] !tw-border-solid !tw-border-gray-300 !tw-bg-white !tw-text-black tw-transition-colors tw-duration-[0.3s] !tw-px-6 !tw-py-3 tw-flex tw-items-center tw-gap-2"
+                                >
+                                    <i class="bi bi-apple"></i>
+                                    <span>Apple Silicon (M1/M2/M3)</span>
+                                    <span class="tw-text-xs tw-opacity-70">(92MB)</span>
+                                </a>
+                                <a
+                                    href="https://github.com/srikarpunna/proxy-ai-releases/releases/download/v1.0.0/Proxy.AI.Assistant-1.0.0.dmg"
+                                    download
+                                    class="btn !tw-rounded-lg !tw-border-[1px] !tw-border-solid !tw-border-gray-300 !tw-bg-gray-100 !tw-text-black tw-transition-colors tw-duration-[0.3s] !tw-px-6 !tw-py-3 tw-flex tw-items-center tw-gap-2"
+                                >
+                                    <i class="bi bi-apple"></i>
+                                    <span>Intel Mac</span>
+                                    <span class="tw-text-xs tw-opacity-70">(98MB)</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Coming Soon -->
+                        <div class="tw-flex tw-flex-col tw-gap-4">
+                            <h3 class="tw-text-xl tw-text-white tw-font-medium">Windows & Linux</h3>
+                            <div class="tw-flex tw-gap-3 tw-flex-wrap">
+                                <div class="tw-px-6 tw-py-3 tw-rounded-lg tw-border tw-border-gray-600 tw-bg-gray-800 tw-text-gray-400 tw-flex tw-items-center tw-gap-2">
+                                    <i class="bi bi-windows"></i>
+                                    <span>Windows - Coming Soon</span>
+                                </div>
+                                <div class="tw-px-6 tw-py-3 tw-rounded-lg tw-border tw-border-gray-600 tw-bg-gray-800 tw-text-gray-400 tw-flex tw-items-center tw-gap-2">
+                                    <i class="bi bi-ubuntu"></i>
+                                    <span>Linux - Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tw-flex tw-flex-col tw-gap-2">
+                            <p class="tw-text-sm tw-text-gray-400">
+                                <i class="bi bi-shield-check tw-mr-2"></i>
+                                Version 1.0.0 • Notarized & Code Signed • Auto-updates included
+                            </p>
+                            <p class="tw-text-sm tw-text-gray-500">
+                                System Requirements: macOS 10.15+ • 4GB RAM • 200MB disk space
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="tw-max-w-[60%] tw-w-full tw-h-full tw-flex max-lg:tw-max-w-full tw-place-content-end tw-place-items-end">
+                        <img src="./assets/images/home/ai-features-interface.png" alt="AI Desktop Assistant Interface - Features Overview"
+                            class="tw-h-full tw-max-h-[90%] tw-object-contain">
+                    </div>
+            </div>
+        </section>
+
+        <footer
+            class="tw-mt-auto tw-flex tw-w-full tw-place-content-around tw-gap-3 tw-p-[5%] tw-px-[10%] tw-text-white max-md:tw-flex-col"
+        >
+            <div
+                class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full"
+            >
+                <img
+                    src="./assets/logo/logo.png"
+                    alt="AI Desktop Assistant Logo"
+                    srcset=""
+                    class="tw-max-w-[120px]"
+                />
+                <div class="tw-text-center">
+                    Your privacy-focused AI assistant
+                    <br />
+                    Real-time intelligence, only when you need it
+                    <br />
+                    Available on Windows, Mac & Linux
+                </div>
+                <div class="tw-mt-3 tw-text-lg tw-font-semibold">Follow us</div>
+                <div class="tw-flex tw-gap-4 tw-text-2xl">
+                    <a href="#" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a
+                        href="#"
+                        aria-label="Twitter"
+                    >
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="tw-h-[40px] tw-w-[40px]"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
+                <h2 class="tw-text-3xl max-md:tw-text-xl">Product</h2>
+                <div class="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm">
+                    <a href="#features" class="footer-link">Features</a>
+                    <a href="#use-cases" class="footer-link">Use Cases</a>
+                    <a href="#download" class="footer-link">Download</a>
+                    <a href="#faq" class="footer-link">FAQ</a>
+                    <a href="#privacy" class="footer-link">Privacy & Security</a>
+                </div>
+            </div>
+
+            <div class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
+                <h2 class="tw-text-3xl max-md:tw-text-xl">Support</h2>
+                <div class="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm">
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">System Requirements</a>
+                    <a href="#" class="footer-link">Contact Support</a>
+                    <a href="#" class="footer-link">Release Notes</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
+        integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
+        integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="./index.js"></script>
+</html>
