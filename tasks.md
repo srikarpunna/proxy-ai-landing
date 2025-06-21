@@ -128,9 +128,11 @@
 ### 🎯 **Complete Transformation:**
 - ✅ **Hero**: "Your AI Desktop Copilot" with privacy-focused messaging
 - ✅ **Features**: 6 key differentiators (user-initiated, stealth, dual input, real-time, local-first, cross-platform)
+- ✅ **Customization**: NEW! Custom LLM configuration section showing pre-session setup and context awareness
 - ✅ **Use Cases**: 4 target scenarios (sales/meetings, developer support, interviews, privacy-first)
 - ✅ **Success Stories**: 3 compelling case studies
 - ✅ **FAQ**: 5 relevant questions addressing privacy, stealth mode, platforms, competition, input methods
+- ✅ **Installation Guide**: NEW! Comprehensive guide for fixing macOS "damaged" app error
 - ✅ **Download Section**: Real download functionality with actual DMG files
 - ✅ **Footer**: Product-relevant links and professional description
 
@@ -145,13 +147,31 @@
 - ✅ **Coming Soon**: Windows & Linux versions clearly marked
 - ✅ **Version Info**: v1.0.0, notarized, code signed, auto-updates
 
+### 🚀 **GITHUB DEPLOYMENT COMPLETE!**
+- ✅ **Repository Created**: https://github.com/srikarpunna/proxy-ai-landing
+- ✅ **Code Pushed**: All files uploaded to GitHub
+- ✅ **Download Links Updated**: Now pointing to GitHub releases
+- ✅ **GitHub Integration**: Downloads from proxy-ai-releases repository
+- ✅ **Production Ready**: Landing page ready for GitHub Pages
+
+### 🔗 **Download Architecture:**
+- **Landing Page**: https://github.com/srikarpunna/proxy-ai-landing (GitHub Pages)
+- **App Releases**: https://github.com/srikarpunna/proxy-ai-releases (DMG files)
+- **Private Development**: proxy-ai repository (your private repo)
+
+### 📋 **Next Steps:**
+1. **Enable GitHub Pages**: Go to repository Settings → Pages → Deploy from main branch
+2. **Custom Domain** (optional): Add your custom domain
+3. **Auto-deployment**: Every push to main will update the live site
+
 ### 🚀 **Your AI Desktop Assistant Landing Page is Ready!**
 
-**Access your landing page at:** http://localhost:8000
+**GitHub Repository:** https://github.com/srikarpunna/proxy-ai-landing
+**Live Site:** Will be available at https://srikarpunna.github.io/proxy-ai-landing (after enabling Pages)
 
 **Download functionality:**
-- Click any "Download" button to instantly download the app
-- Automatic file detection for Apple Silicon vs Intel Macs
+- Click any "Download" button to download from GitHub releases
+- Automatic version updates when you push new releases
 - Professional download page with system requirements
 - Auto-updater integration ready
 
